@@ -1,7 +1,6 @@
 package org.example;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -34,7 +33,7 @@ public class Main {
     public void addMultipleProductsToCart(String[] products) {
         for (int i = 0; i < products.length; i++) {
             // Locate the Add to Cart button using product name
-            addToCartButton= driver.findElement(By.xpath("//div[@class='products']/div[@class='product']/h4[contains(text(), '" + products[i] + "')]/parent::div/div[@class='product-action']/button"));
+            addToCartButton= driver.findElement(By.xpath("//h4[contains(text(), '" + products[i] + "')]/parent::div/div[@class='product-action']/button"));
             addToCartButton.click();//click the Add to Cart button
         }
     }
