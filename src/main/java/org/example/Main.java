@@ -1,6 +1,7 @@
 package org.example;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -32,11 +33,16 @@ public class Main {
     //Loops over a list of products to add each to the cart.
     public void addMultipleProductsToCart(String[] products) {
         for (int i = 0; i < products.length; i++) {
-            // Locate the Add to Cart button using product name
-            addToCartButton= driver.findElement(By.xpath("//h4[contains(text(), '" + products[i] + "')]/parent::div/div[@class='product-action']/button"));
-            addToCartButton.click();//click the Add to Cart button
+            try {
+                // Locate the Add to Cart button using product name
+                WebElement addToCartButton = driver.findElement(By.xpath("//h4[contains(text(), '" + products[i] + "')]/parent::div/div[@class='product-action']/button"));
+                addToCartButton.click(); // Click the Add to Cart button
+            } catch (NoSuchElementException e) {
+                System.out.println("Product: " + products[i] + " is not found");
+                // Optionally continue or log more details
+            }
         }
-    }
+     }
 
     public void checkOut(String promoCode){
         cartIcon = driver.findElement(By.xpath("//img[@alt='Cart']"));
