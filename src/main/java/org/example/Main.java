@@ -54,34 +54,34 @@ public class Main {
         }
     }
 
-//    public void checkOut(String promoCode){
-//        cartIcon = driver.findElement(By.xpath("//img[@alt='Cart']"));
-//        cartIcon.click();
-//
-//        checkOutBtn = driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']"));
-//        checkOutBtn.click();
-//
-//        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoCode")));
-//
-//        promoCodeTbox = driver.findElement(By.cssSelector(".promoCode"));
-//        promoCodeTbox.sendKeys(promoCode);
-//
-//        promoBtn = driver.findElement(By.cssSelector(".promoBtn"));
-//        promoBtn.click();
-//
-//        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoInfo")));
-//
-//        promoInfo = driver.findElement(By.cssSelector(".promoInfo"));
-//        System.out.println("Code information message: " + promoInfo.getText());
-//
-//        placeOrderBtn = driver.findElement(By.xpath("//button[text()='Place Order']"));
-//        placeOrderBtn.click();
-//
-//    }
+    public void checkOut(String promoCode){
+        cartIcon = driver.findElement(By.xpath("//img[@alt='Cart']"));
+        cartIcon.click();
+
+        checkOutBtn = driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']"));
+        checkOutBtn.click();
+
+        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoCode")));
+
+        promoCodeTbox = driver.findElement(By.cssSelector(".promoCode"));
+        promoCodeTbox.sendKeys(promoCode);
+
+        promoBtn = driver.findElement(By.cssSelector(".promoBtn"));
+        promoBtn.click();
+
+        waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".promoInfo")));
+
+        promoInfo = driver.findElement(By.cssSelector(".promoInfo"));
+        System.out.println("Code information message: " + promoInfo.getText());
+
+        placeOrderBtn = driver.findElement(By.xpath("//button[text()='Place Order']"));
+        placeOrderBtn.click();
+
+    }
 
     public static void main(String[] args) {
         Main m = new Main();
         m.addMultipleProductsToCart(products);
-       // m.checkOut(promoCode);
+       m.checkOut(promoCode);
     }
 }
